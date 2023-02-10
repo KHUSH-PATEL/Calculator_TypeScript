@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800;900&family=Source+Serif+Pro:wght@200&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 99vh;
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator-body{
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    background-color: rgb(242, 242, 242);
+    height: 650px;
+    width: 450px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 12;
+    grid-gap: 3px;
+}
+.top-part{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 5;
+    grid-template-rows: 6;
+    grid-row: 1/6;
+    grid-column: 1/6;
+}
+.item{
+    font-size: 1.1em;
+    font-weight: 200;
+    background-color: white;
+    border: none;
+}
+.white{
+    background-color: white;
+}
+.item:hover{
+    background-color: rgb(242, 242, 242);
+}
+.top-item{
+    font-weight: 400;
+    
+    border: none;
+}
+#functions{
+    display: flex;
+}
+#trigonometry{
+    display: flex;
+}
+
+span{
+    font-weight: 600;
+}
+.item:hover{
+    background-color: rgb(242, 242, 242);
+}
+.top-items{
+    background-color: rgb(242, 242, 242);
+    border: none;
+}
+.white{
+    background-color: rgb(242, 242, 242);
+}
+.arithmatic{
+    font-size: 2em;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 200;
+}
+#display{
+    grid-row: 6/3;
+    grid-column: 1/6;
+    text-align: right;
+    font-size: 2em;
+    font-weight: 600;
+    border: none;
+    background-color: rgb(242, 242, 242);
+}
+#display2{
+    grid-row: 1/3;
+    grid-column: 1/6;
+    text-align: right;
+    font-size: 1em;
+    color: #696866c4;
+    font-weight: 600;
+    border: none;
+    background-color: rgb(242, 242, 242);
+}
+#trignomatry{
+    grid-column: 1/3;
+}
+#functions{
+    grid-column: 3/6;
+}
+.numbers{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.equal{
+    background-color: rgb(0, 53, 151);
+    color: white;
+}
+.equal:hover{
+    background-color: rgb(0, 53, 151);
+    color: white;
+}
+#dropdown1{
+    grid-column: 1/3;
+}
+#dropdown2{
+    grid-column: 3/6;
+    margin-right: 100px;
+}
