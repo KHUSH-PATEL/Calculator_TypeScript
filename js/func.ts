@@ -3,10 +3,10 @@ showOnScreen.style.display ="block";
 var showOnScreen2 = document.getElementById('display2')! as HTMLInputElement;
 showOnScreen2.style.display ="block";
 
-var PIE = Math.PI;
-var ButtonClicked = 0;
-var count = 0;
-var lcount = 0;
+var PIE:Number = Math.PI;
+var ButtonClicked:number = 0;
+var count:number = 0;
+var lcount:number = 0;
 var memory:any = [];
 memoryCheck()
 
@@ -59,7 +59,7 @@ function validateInput() {
     }
 }
 //Arithmetic functions;
-function arithmetic(arithmetics:string) {
+function arithmetic(arithmetics:string):void {
     switch (arithmetics) {
         case "substraction":
             if (validateInput()) {
@@ -133,13 +133,13 @@ function arithmetic(arithmetics:string) {
     }
 }
 //exponential Function
-function exponential() {
+function exponential():void {
     if(!showOnScreen.value.includes(".e+0")){
         showOnScreen.value = showOnScreen.value + '.e+0';
     }
 }
 //Modulo functions
-function modulo() {
+function modulo():void {
     if (validateInput()) {
         showOnScreen.value = showOnScreen.value.slice(0, -1) + '%';
     }
@@ -151,17 +151,17 @@ function modulo() {
     }
 }
 //X Raise to Y functions
-function xTimesy() {
+function xTimesy():void {
     if (!showOnScreen.value.includes("^")) {
         showOnScreen.value += "^";
     }
 }
 //To find Y root of X functions
-function yRootx() {
+function yRootx():void {
     showOnScreen.value += "Yroot";
 }
 //X raise to Y square functions
-function xySquare() {
+function xySquare():void {
     let a = showOnScreen.value[showOnScreen.value.length - 1];
     if (a.match(/[0-9]/)) {
         let b = showOnScreen.value.split("^");
@@ -172,7 +172,7 @@ function xySquare() {
     }
 }
 //Y root of X functions
-function xyRoot() {
+function xyRoot():void {
     let a = showOnScreen.value[showOnScreen.value.length - 1];
     if (a.match(/[0-9]/)) {
         let b = showOnScreen.value.split("Yroot");
@@ -183,23 +183,23 @@ function xyRoot() {
     }
 }
 //10 raise to X functions
-function xTimes10() {
+function xTimes10():void {
     showOnScreen.value = Math.pow(10, Number(showOnScreen.value)).toString();
 }
 //2 raise to X functions
-function twoRaiseX() {
+function twoRaiseX():void {
     showOnScreen.value = Math.pow(2, Number(showOnScreen.value)).toString();
 }
 //Log with base 10 functions
-function logBase10() {
+function logBase10():void {
     (showOnScreen.value =="" || showOnScreen.value == "0") ? showOnScreen.value = "Invalid Input" : showOnScreen.value = Math.log10(Number(showOnScreen.value)).toString();
 }
 //Log with base Y functions
-function logBaseY() {
+function logBaseY():void {
     showOnScreen.value += "baseY";
 }
 //Log with base Y functions
-function calculatelogBaseY() {
+function calculatelogBaseY():void {
     let a = showOnScreen.value[showOnScreen.value.length - 1];
     if (a.match(/[0-9]/)) {
         let b = showOnScreen.value.split("baseY");
@@ -210,14 +210,14 @@ function calculatelogBaseY() {
     }
 }
 //Log with base E functions
-function logBaseE() {
+function logBaseE():void {
     (showOnScreen.value =="" || showOnScreen.value == "0") ? showOnScreen.value = "Invalid Input" : showOnScreen.value = Math.log(Number(showOnScreen.value)).toString();
 }
 function eRaiseX(){
     showOnScreen.value = Math.pow(Math.E, Number(showOnScreen.value)).toString();
 }
 //Inverse the value functions
-function inverseValue() {
+function inverseValue():void {
     let num = showOnScreen.value[0];
     let a = num[0];
     let b = "-";
@@ -229,13 +229,13 @@ function inverseValue() {
     }
 }
 //Bracket Functions
-function openBracket() {
+function openBracket():void {
     showOnScreen.value += "(";
     count++;
     document.getElementById("cnt").innerHTML = count.toString();
 }
 //Bracket Functions
-function closeBracket() {
+function closeBracket():void {
     let lastValue = showOnScreen.value[showOnScreen.value.length-1];
     if (count > 0) {
         if (lcount == 0 && lastValue == "(") {
@@ -258,7 +258,7 @@ function closeBracket() {
         }
     }
 }
-function factorialResult(n:number) {
+function factorialResult(n:number):void {
     var result = factorial(n);
     showOnScreen.value = result;
 }
@@ -277,7 +277,7 @@ function factorial(x:number):any {
     }
 }
 //Dot operator function
-function operator() {
+function operator():void {
     var last = showOnScreen.value[showOnScreen.value.length-1];
     if(last != "."){
         if (showOnScreen.value == "") {
@@ -289,7 +289,7 @@ function operator() {
     }
 }
 //Backspace function
-function backSpace() {
+function backSpace():void {
     if (showOnScreen.value != "") {
         let lastValue = showOnScreen.value[showOnScreen.value.length-1];
         if(lastValue == "("){
@@ -308,22 +308,22 @@ function backSpace() {
     }
 }
 //Clear the screen function for Display 1
-function clickclr() {
+function clickclr():void {
     showOnScreen.value = "";
     count = 0;
     document.getElementById("cnt").innerHTML = "";
 }
 //Clear the screen function for Display 2
-function clickclr2() {
+function clickclr2():void {
     showOnScreen2.value = "";
 }
 //Display the screen function for Display 2
-function display2() {
+function display2():void {
     let z = showOnScreen.value + "=";
     showOnScreen2.value = z;
 }
 //On click Equal to function
-function clickequ() {
+function clickequ():void {
     if (showOnScreen.value.includes("^")) {
         xySquare();
     }
@@ -341,7 +341,7 @@ function clickequ() {
     showOnScreen.value = Display;
 }
 //Trigonometry functions
-function trigonometry(tigno:any) {
+function trigonometry(tigno:any):void {
     switch (tigno) {
         case "sin":
             showOnScreen.value = Math.sin(Number(showOnScreen.value)).toString();
@@ -364,7 +364,7 @@ function trigonometry(tigno:any) {
     }
 }
 //Mathematical functions
-function functions(valueId:string) {
+function functions(valueId:string):void {
     switch (valueId) {
         case "floor":
             showOnScreen.value = Math.floor(Number(showOnScreen.value)).toString();
@@ -378,7 +378,7 @@ function functions(valueId:string) {
     }
 }
 //Change the value by pressing '2nd' button
-function revert() {
+function revert():void {
     document.getElementById("square").style.display = (ButtonClicked % 2 == 0) ? "none": "block";
     document.getElementById("squareRoot").style.display = (ButtonClicked % 2 == 0) ? "none": "block";
     document.getElementById("xySquare").style.display = (ButtonClicked % 2 == 0) ? "none": "block";
@@ -395,18 +395,18 @@ function revert() {
     document.getElementById("EraiseX").style.display = (ButtonClicked % 2 == 0) ? "block": "none";
     ButtonClicked++;
 }
-function enableBtn(){
-    (document.getElementById("memoryClear")as HTMLButtonElement).disabled = true;
-    (document.getElementById("memoryResult")as HTMLButtonElement).disabled = true;
+function enableBtn():void{
+    (document.getElementById("memoryClear") as HTMLButtonElement).disabled = true;
+    (document.getElementById("memoryResult") as HTMLButtonElement).disabled = true;
 }
-function disableBtn(){
-    (document.getElementById("memoryClear")as HTMLButtonElement).disabled = false;
-    (document.getElementById("memoryResult")as HTMLButtonElement).disabled = false;
+function disableBtn():void{
+    (document.getElementById("memoryClear") as HTMLButtonElement).disabled = false;
+    (document.getElementById("memoryResult") as HTMLButtonElement).disabled = false;
 }
-function memoryCheck(){
+function memoryCheck():void{
     (memory.length==0) ? enableBtn() : disableBtn();
 }
-function memoryOperation(memoryId:string){
+function memoryOperation(memoryId:string):void{
     switch(memoryId){
         case "memoryClear":
             memory = [];
