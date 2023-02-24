@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <form action="" id="calculator" name="calculator">
+        <div class="calculator-body">
+            <!-- Top Part of Calculator Start-->
+            <div class="top-part">
+                
+                <input type="text" name="display2" id="display2" readonly>
+                <input type="text" name="display" id="display" readonly>
+
+                <input type="button" value="DEG" class="top-item">
+                <input type="button" value="F-E" onclick="exponential()" class="top-item">
+                <input type="button" value="" class="top-item">
+                <input type="button" value="" class="top-item">
+                <input type="button" value="" class="top-item">
+
+                <input type="button" value="MC" onclick="memoryOperation(this.id)" id="memoryClear" class="top-item">
+                <input type="button" value="MR" onclick="memoryOperation(this.id)" id="memoryResult" class="top-item">
+                <input type="button" value="M+" onclick="memoryOperation(this.id)" id="memoryPlus" class="top-item">
+                <input type="button" value="M-" onclick="memoryOperation(this.id)" id="memorySub" class="top-item">
+                <input type="button" value="MS" onclick="memoryOperation(this.id)" id="memoryStore" class="top-item">
+                <!-- Top Part of Calculator Ends-->
+
+                <!-- Bottom part of Calculator Starts -->
+                <button id="dropdown1" type="button" class="btn dropdown-toggle top-item" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="https://img.icons8.com/ios-glyphs/30/null/trigonometry.png " />
+                    <span class="fun">Trigonometery</span>
+                </button>
+                <ul class="dropdown-menu p-2" aria-labelledby="dropdown1">
+                    <div class="row row-cols-3 g-0">
+                        <li><button type="button" class="btn w-75 border border-2 mb-3" onclick="trigonometry(this.id)"
+                                id="sin">sin</button>
+                        </li>
+                        <li><button type="button" class="btn w-75 border border-2" onclick="trigonometry(this.id)"
+                                id="cos">cos</button></li>
+                        <li><button type="button" class="btn w-75 border border-2" onclick="trigonometry(this.id)"
+                                id="tan">tan</button></li>
+                        <li><button type="button" class="btn w-75 border border-2" onclick="trigonometry(this.id)"
+                                id="sec">sec</button>
+                        </li>
+                        <li><button type="button" class="btn w-75 border border-2" onclick="trigonometry(this.id)"
+                                id="cosec">csc</button>
+                        </li>
+                        <li><button type="button" class="btn w-75 border border-2" onclick="trigonometry(this.id)"
+                                id="cot">cot</button>
+                        </li>
+                    </div>
+                </ul>
+                <button type="button" id="dropdown2" class="btn dropdown-toggle top-item" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="https://img.icons8.com/ios-glyphs/30/null/frequency-f.png" />
+                    <span class="fun">Functions</span></button>
+                <ul class="dropdown-menu p-2" aria-labelledby="dropdown2">
+                    <div class="row row-cols-3 g-0">
+                        <li><button type="button" class="btn border border-2" onclick="functions(this.id)"
+                                id="floor">⌊x⌋</button>
+                        </li>
+                        <li><button type="button" class="btn border border-2" onclick="functions(this.id)"
+                                id="ceil">⌈x⌉</button></li>
+                        <li><button type="button" class="btn border border-2" onclick="functions(this.id)" id="mod">
+                                | x |</button></li>
+                    </div>
+                </ul>
+            </div>
+            <!-- Top Part of Calculator Ends-->
+
+            <!-- Bottom part of Calculator Starts -->
+            <input type="button" value="2nd" onclick="revert(this.id)" id="two" class="item">
+
+            <input type="button" value="&#x1D7B9;" onclick="arithmetic(this.id)" id="pi" class="item">
+            <input type="button" value="e" onclick="arithmetic(this.id)" id="ex" class="item">
+            <input type="button" value="C" onclick="clickclr()" ondblclick="clickclr2()" class="item">
+            <button type="button" onclick="backSpace()" class="item"><img src="./icon/backspace.png"
+                    style="height: 23px; width: 23px;"></button>
+
+            <button type="button" onclick="arithmetic(this.id)" id="square" class="item">x<sup>2</sup></button>
+            <button type="button" style="display:none;" onclick="arithmetic(this.id)" id="cube"
+                class="item">x<sup>3</sup></button>
+
+            <input type="button" value="1/x" onclick="arithmetic(this.id)" id="inverse" class="item">
+            <input type="button" value="| x |" onclick="functions(this.id)" id="mod" class="item">
+            <input type="button" value="exp" onclick="exponential()" class="item">
+            <input type="button" value="mod" onclick="modulo()" class="item">
+
+            <button type="button" onclick="arithmetic(this.id)" id="squareRoot"
+                class="item"><sup>2</sup>&#8730x</button>
+            <button type="button" style="display:none;" onclick="arithmetic(this.id)" id="cubeRoot"
+                class="item"><sup>3</sup>&#8730x</button>
+
+            <button type="button" value="(" onclick="openBracket()" class="item">( <span id="cnt"></span></button>
+            <input type="button" value=")" onclick="closeBracket()" class="item">
+            <input type="button" value="n!" onclick="factorialResult(showOnScreen.value)" class="item">
+            <input type="button" value="÷" onclick="arithmetic(this.id)" id="division" class="item arithmatic">
+            
+            <button type="button" onclick="xTimesy()" id="xySquare" class="item"><sub>x</sub><sup>y</sup></button>
+            <button type="button" style="display:none;" onclick="yRootx()" id="yRootx"
+                class="item"><sup>y</sup>&#8730x</button>
+            
+            <input type="button" name="" value="7" onclick="numbers(this.id)" id="seven" class="item numbers">
+            <input type="button" name="" value="8" onclick="numbers(this.id)" id="eight" class="item numbers">
+            <input type="button" name="" value="9" onclick="numbers(this.id)" id="nine" class="item numbers">
+            <input type="button" value="&#215;" onclick="arithmetic(this.id)" id="multiplication"
+                class="item arithmatic">
+            
+            <button type="button" onclick="xTimes10()" id="xTimes10" class="item">10<sup>x</sup></button>
+            <button type="button" style="display:none;" onclick="twoRaiseX()" id="twoRaiseX"
+                class="item">2<sup>x</sup></button>
+            
+            <input type="button" name="" value="4" onclick="numbers(this.id)" id="four" class="item numbers">
+            <input type="button" name="" value="5" onclick="numbers(this.id)" id="five" class="item numbers">
+            <input type="button" name="" value="6" onclick="numbers(this.id)" id="six" class="item numbers">
+            <input type="button" name="" value="-" onclick="arithmetic(this.id)" id="substraction"
+                class="item arithmatic">
+            
+            <button type="button" onclick="logBase10()" id="log" class="item">log</button>
+            <button type="button" style="display:none;" onclick="logBaseY()" id="logyx"
+                class="item">log<sub>y</sub><sup>x</sup></button>
+            
+            <input type="button" name="" value="1" onclick="numbers(this.id)" id="one" class="item numbers">
+            <input type="button" name="" value="2" onclick="numbers(this.id)" id="two" class="item numbers">
+            <input type="button" name="" value="3" onclick="numbers(this.id)" id="three" class="item numbers">
+            <input type="button" name="" value="+" onclick="arithmetic(this.id)" id="addition" class="item">
+            
+            <button type="button" onclick="logBaseE()" id="logE" class="item">ln</button>
+            <button type="button" style="display:none;" onclick="eRaiseX()" id="EraiseX"
+                class="item">e<sup>x</sup></button>
+
+            <input type="button" value="+/-" onclick="inverseValue()" class="item">
+            <input type="button" name="" value="0" onclick="numbers(this.id)" id="zero" class="item numbers">
+            <button type="button" onclick="operator()" class="item"><strong>.</strong></button>
+            <input type="button" name="" value="=" onclick="clickequ()" class="item arithmatic equal">
+            <!-- Bottom part of Calculator Ends -->
+
+        </div>
+    </form>
+</body>
+<script src="./js/func.js"></script>
+
+</html>
